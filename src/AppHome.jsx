@@ -31,10 +31,10 @@ return (
     value={search}
     onChange={(e) =>setSearch(e.target.value)}/>
     <div >    <button onClick={fetchMovies}>Cerca</button>
-    <div className="d-flex justify-content-between flex-wrap m-3">
+    <div className="d-flex justify-content-between flex-wrap ">
 {[...dataSeries, ...dataMovie].map((curData, index) => (
     <div className="card col-3" key={index}>
-      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina" />
+      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina"/>
             <h3 >Titolo:{curData.title} || {curData.name}</h3>
             <h4>Titolo Originale:{curData.original_title} || {curData.original_name}</h4>
 <h5>
