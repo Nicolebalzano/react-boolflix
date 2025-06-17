@@ -32,7 +32,8 @@ return (
     onChange={(e) =>setSearch(e.target.value)}/>
     <div>    <button onClick={fetchMovies}>Cerca</button>
 {[...dataSeries, ...dataMovie].map((curData, index) => (
-    <div key={index}>
+    <div className="card" key={index}>
+      <img src={`https://image.tmdb.org/t/p/w342/${curData.backdrop_path}`} alt="Immagine copertina" />
             <h3 >Titolo:{curData.title} || {curData.name}</h3>
             <h4>Titolo Originale:{curData.original_title} || {curData.original_name}</h4>
 <h5>
