@@ -26,14 +26,15 @@ const AppHome = () => {
     
    
 return (
-    <>
+    <div className="container mt-3">
     <input type="text" placeholder="Cerca il film..."
     value={search}
     onChange={(e) =>setSearch(e.target.value)}/>
-    <div>    <button onClick={fetchMovies}>Cerca</button>
+    <div >    <button onClick={fetchMovies}>Cerca</button>
+    <div className="d-flex justify-content-between flex-wrap m-3">
 {[...dataSeries, ...dataMovie].map((curData, index) => (
-    <div className="card" key={index}>
-      <img src={`https://image.tmdb.org/t/p/w342/${curData.backdrop_path}`} alt="Immagine copertina" />
+    <div className="card col-3" key={index}>
+      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina" />
             <h3 >Titolo:{curData.title} || {curData.name}</h3>
             <h4>Titolo Originale:{curData.original_title} || {curData.original_name}</h4>
 <h5>
@@ -47,10 +48,10 @@ return (
 </h5>
             <p>Votazione: {curData.vote_average}</p>
             </div>
-        ))}
+        ))}</div>
     </div>
 
-    </>
+    </div>
 )
 
 }
