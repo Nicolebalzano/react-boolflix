@@ -3,5 +3,11 @@
     height: auto;
 }
 .fa-star {
-    color: rgb(178, 178, 44);
+    color: rgb(213, 213, 100);
+}
+header{
+    height: 80px;
+}
+.nav-bar{
+    margin: 10px;
 }

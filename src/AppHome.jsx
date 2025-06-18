@@ -35,17 +35,22 @@ const AppHome = () => {
 
   
 return (
-    <div className="container mt-3">
-    <input type="text" placeholder="Cerca il film..."
+ <>
+      <header className="d-flex bg-dark justify-content-between align-items-center">
+        <h1 className="text-danger mx-4">BOOLFLIX</h1>
+    <div className="nav-bar d-flex"><input type="search" placeholder="Cerca il film..."
     value={search}
-    onChange={(e) =>setSearch(e.target.value)}/>
-    <div >    <button onClick={fetchMovies}>Cerca</button>
-    <div className="d-flex justify-content-between flex-wrap ">
+    onChange={(e) =>setSearch(e.target.value)}
+    className="form-control mx-1"/>
+    <button onClick={fetchMovies} className="btn btn-outline-danger">Cerca</button></div></header> 
+    <div className="row row-cols-6 d-flex align-items-stretch justify-content-center">
 {[...dataSeries, ...dataMovie].map((curData, index) => (
-    <div className="card col-3" key={index}>
-      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina"/>
-            <h3 >Titolo:{curData.title} || {curData.name}</h3>
-            <h4>Titolo Originale:{curData.original_title} || {curData.original_name}</h4>
+    <div className="col m-1" key={index}>
+      <div className="card h-100">
+        <div className="card-body">
+      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina" className="object-fit-coverimg-fluid card-img-top"/>
+            <h3 >Titolo:{curData.title} {curData.name}</h3>
+            <h4>Titolo Originale:{curData.original_title}  {curData.original_name}</h4>
 <h5>
   Lingua Originale: {curData.original_language === "en" ? (
     <img src="american-flag.jpeg" className="lang-flag" alt="Bandiera Americana" />
@@ -56,11 +61,11 @@ return (
   )}
 </h5>
             <p>Votazione: {getStar(curData.vote_average)} </p>
-            </div>
+            </div></div></div>
         ))}</div>
-    </div>
+   
 
-    </div>
+</>
 )
 
 }
