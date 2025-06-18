@@ -1,3 +1,6 @@
+body{
+    background-color: #3f3e3e;
+}
 .lang-flag{
     width: 20px;
     height: auto;
@@ -10,4 +13,32 @@ header{
 }
 .nav-bar{
     margin: 10px;
+}
+.card{
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: relative;
+    overflow: hidden;
+    height: 500px;
+    background-color: #9f9999;
+    padding: 20px;
+}
+.card-info{
+ position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    color: #ffffff;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.card:hover .card-info {
+    opacity: 1; 
 }

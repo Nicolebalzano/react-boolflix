@@ -36,20 +36,20 @@ const AppHome = () => {
   
 return (
  <>
-      <header className="d-flex bg-dark justify-content-between align-items-center">
+      <header className="d-flex bg-dark justify-content-between align-items-center sticky-top">
         <h1 className="text-danger mx-4">BOOLFLIX</h1>
     <div className="nav-bar d-flex"><input type="search" placeholder="Cerca il film..."
     value={search}
     onChange={(e) =>setSearch(e.target.value)}
     className="form-control mx-1"/>
     <button onClick={fetchMovies} className="btn btn-outline-danger">Cerca</button></div></header> 
-    <div className="row row-cols-6 d-flex align-items-stretch justify-content-center">
+    <div className="row row-cols-5 d-flex mt-5 align-items-stretch justify-content-center">
 {[...dataSeries, ...dataMovie].map((curData, index) => (
     <div className="col m-1" key={index}>
-      <div className="card h-100">
-        <div className="card-body">
-      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w342/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina" className="object-fit-coverimg-fluid card-img-top"/>
-            <h3 >Titolo:{curData.title} {curData.name}</h3>
+      <div className="card">
+      <img src={curData.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${curData.backdrop_path}` : "images-placeholder.png"} alt="Immagine copertina" className="object-fit-cover img-fluid  h-100"/>
+            <div className="card-info">
+              <h3 >Titolo:{curData.title} {curData.name}</h3>
             <h4>Titolo Originale:{curData.original_title}  {curData.original_name}</h4>
 <h5>
   Lingua Originale: {curData.original_language === "en" ? (
@@ -61,8 +61,11 @@ return (
   )}
 </h5>
             <p>Votazione: {getStar(curData.vote_average)} </p>
-            </div></div></div>
-        ))}</div>
+          </div>
+            </div>
+          
+            </div>   
+        ))} </div> 
    
 
 </>
