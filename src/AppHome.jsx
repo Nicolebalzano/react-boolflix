@@ -23,8 +23,17 @@ const AppHome = () => {
         }
       
     }, [])
-    
-   
+ 
+      const getStar = (voteAverage) => {
+   const fullStarsCount =  Math.round(voteAverage / 2)
+    return Array.from({length : 5}, (star, index) => (
+      index < fullStarsCount ? 
+        <i key={index} className="fa-solid fa-star"></i> : 
+      <i key={index} className="fa-regular fa-star"></i>
+    ))
+  }
+
+  
 return (
     <div className="container mt-3">
     <input type="text" placeholder="Cerca il film..."
@@ -46,7 +55,7 @@ return (
     curData.original_language
   )}
 </h5>
-            <p>Votazione: {curData.vote_average}</p>
+            <p>Votazione: {getStar(curData.vote_average)} </p>
             </div>
         ))}</div>
     </div>
